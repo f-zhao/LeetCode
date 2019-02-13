@@ -19,18 +19,17 @@ import java.util.Map;
  * 所以返回 [0, 1]
  * <p>
  * 算法时间复杂度O(n)
+ * 空间复杂度O(n)
  */
-public class TwoSum2 {
+public class TwoSum3 {
     public static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], i);
-        }
-        for (int i = 0; i < nums.length; i++) {
             int anotherNum = target - nums[i];
             if (map.containsKey(anotherNum) && map.get(anotherNum) != i) {
-                return new int[]{i, map.get(anotherNum)};
+                return new int[]{map.get(anotherNum), i};
             }
+            map.put(nums[i], i);
         }
         throw new IllegalArgumentException("not found");
     }
