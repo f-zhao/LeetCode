@@ -18,7 +18,7 @@ import java.util.Map;
  * 因为 nums[0] + nums[1] = 2 + 7 = 9
  * 所以返回 [0, 1]
  * <p>
- * 算法时间复杂度O(n²)
+ * 算法时间复杂度O(1)
  */
 public class TwoSum2 {
     public static int[] twoSum(int[] nums, int target) {
