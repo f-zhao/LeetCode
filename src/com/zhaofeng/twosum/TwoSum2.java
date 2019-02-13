@@ -1,4 +1,7 @@
-package com.zhaofeng;
+package com.zhaofeng.twosum;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author zhaofeng
@@ -14,16 +17,19 @@ package com.zhaofeng;
  * <p>
  * 因为 nums[0] + nums[1] = 2 + 7 = 9
  * 所以返回 [0, 1]
- *
+ * <p>
  * 算法时间复杂度O(n²)
  */
-public class TwoSum {
+public class TwoSum2 {
     public static int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[i] + nums[j] == target) {
-                    return new int[]{i, j};
-                }
+            map.put(nums[i], i);
+        }
+        for (int i = 0; i < nums.length; i++) {
+            int anotherNum = target - nums[i];
+            if (map.containsKey(anotherNum) && map.get(anotherNum) != i) {
+                return new int[]{i, map.get(anotherNum)};
             }
         }
         throw new IllegalArgumentException("not found");
